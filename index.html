@@ -93,13 +93,25 @@
 
 </section>
 <!-- WHY ME -->
-<section class="section dark fade">
+<section class="section dark fade why">
   <h2>Why Choose Me</h2>
-  <div class="grid">
-    <div class="card">✔ Clean Work</div>
-    <div class="card">✔ On Time</div>
-    <div class="card">✔ Professional Finish</div>
-    <div class="card">✔ Fair Pricing</div>
+  <div class="grid why-grid">
+    <div class="card">
+      <span class="feature-icon">✔</span>
+      <p>Clean Work</p>
+    </div>
+    <div class="card">
+      <span class="feature-icon">✔</span>
+      <p>On Time</p>
+    </div>
+    <div class="card">
+      <span class="feature-icon">✔</span>
+      <p>Professional Finish</p>
+    </div>
+    <div class="card">
+      <span class="feature-icon">✔</span>
+      <p>Fair Pricing</p>
+    </div>
   </div>
 </section>
 
@@ -116,6 +128,12 @@
 <footer>
   <p>© 2026 Premium Tiling Services</p>
 </footer>
+
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-nav prev" aria-label="Previous image">&#10094;</button>
+  <img id="lightbox-img" src="" alt="Gallery image">
+  <button class="lightbox-nav next" aria-label="Next image">&#10095;</button>
+</div>
 
 <script>
   const elements = document.querySelectorAll('.fade');
@@ -134,25 +152,49 @@
 
   window.addEventListener('scroll', showOnScroll);
   window.addEventListener('load', showOnScroll);
-</script>
-<div id="lightbox" class="lightbox">
-  <img id="lightbox-img" src="" alt="">
-</div>
 
-<script>
-  const images = document.querySelectorAll(".gallery img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+  const imageElements = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const prevBtn = document.querySelector('.lightbox-nav.prev');
+  const nextBtn = document.querySelector('.lightbox-nav.next');
+  let currentIndex = 0;
+  const imageSources = Array.from(imageElements).map(img => img.src);
 
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
+  const showImage = (index) => {
+    currentIndex = (index + imageSources.length) % imageSources.length;
+    lightboxImg.src = imageSources[currentIndex];
+  };
+
+  imageElements.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      showImage(index);
+      lightbox.style.display = 'flex';
     });
   });
 
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
+  prevBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (lightbox.style.display === 'flex') {
+      if (event.key === 'ArrowRight') showImage(currentIndex + 1);
+      if (event.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (event.key === 'Escape') lightbox.style.display = 'none';
+    }
   });
 </script>
 
