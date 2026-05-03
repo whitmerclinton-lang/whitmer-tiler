@@ -567,3 +567,32 @@ footer {
 .section {
   padding: 60px 20px;
 }
+/* TÍTULOS EN SECCIONES OSCURAS */
+.section.dark h2,
+.work h2,
+h2 {
+  color: white;
+}
+
+/* SUBTÍTULOS SI LOS TIENES */
+.section.dark h3 {
+  color: white;
+}
+
+/* PARÁGRAFOS EN FONDO OSCURO */
+.section.dark p {
+  color: #ddd;
+}
+.section.dark h2 {
+  position: relative;
+}
+
+.section.dark h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ff9800;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
