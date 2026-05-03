@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Tiling Services</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Premium Tiling Services</h1>
+    <p>Bathrooms • Kitchens • Floors • Remodeling</p>
+    <a href="#contact" class="btn">Get a Free Quote</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="section about fade">
+  <h2>About Me</h2>
+
+  <div class="about-container">
+
+    <div class="about-img">
+      <img src="about.jpg" alt="Tiler working">
+    </div>
+
+    <div class="about-text">
+      <p>
+    I am a professional tile installer with several years of experience in both residential and commercial projects. I focus on precision, quality, and the details that make a job stand out. I take pride in ensuring that every project is done right from the start, with clean and durable finishes. My priority is to deliver results that exceed client expectations and reflect the dedication and pride I have in my craft.
+  </p>
+  </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section dark fade">
+  <h2>Our Services</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <i class="fas fa-bath"></i>
+      <h3>Bathroom Remodeling</h3>
+      <p>High-end tile installation with clean and modern finishes.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-utensils"></i>
+      <h3>Kitchen Backsplash</h3>
+      <p>Upgrade your kitchen with stylish backsplash designs.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-border-all"></i>
+      <h3>Floor Installation</h3>
+      <p>Durable and precise tile flooring for any space.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-layer-group"></i>
+      <h3>Porcelain & Ceramic</h3>
+      <p>Expert work using premium materials and techniques.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section fade">
+  <h2>My Work</h2>
+
+  <div class="gallery">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+    <img src="img5.jpg">
+    <img src="img6.jpg">
+    <img src="img7.jpg">
+    <img src="img8.jpg">
+  </div>
+</section>
+
+<section class="section work fade">
+
+</section>
+<!-- WHY ME -->
+<section class="section dark fade">
+  <h2>Why Choose Me</h2>
+  <div class="grid">
+    <div class="card">✔ Clean Work</div>
+    <div class="card">✔ On Time</div>
+    <div class="card">✔ Professional Finish</div>
+    <div class="card">✔ Fair Pricing</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact fade" id="contact">
+  <h2>Contact</h2>
+  <p>📍 Albany, NY</p>
+  <p>📞 914-830-8801</p>
+  <p>📧 whitmerclinton@gmail.com</p>
+
+  <a class="btn" href="https://wa.me/9148308801">Message on WhatsApp</a>
+</section>
+
+<footer>
+  <p>© 2026 Premium Tiling Services</p>
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade');
+
+  const showOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+      const boxTop = el.getBoundingClientRect().top;
+
+      if (boxTop < triggerBottom) {
+        el.classList.add('show');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', showOnScroll);
+  window.addEventListener('load', showOnScroll);
+</script>
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const images = document.querySelectorAll(".gallery img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+</script>
+
+</body>
+
+</html>
