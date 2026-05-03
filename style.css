@@ -596,3 +596,35 @@ h2 {
   margin: 10px auto 0;
   border-radius: 2px;
 }
+.section.dark {
+  background: linear-gradient(135deg, #111, #1e1e1e);
+  color: white;
+}
+
+/* TÍTULOS */
+.section.dark h2 {
+  color: #ffffff;
+}
+
+/* SUBTÍTULOS */
+.section.dark h3 {
+  color: #ffffff;
+}
+
+/* TEXTO */
+.section.dark p {
+  color: #e6e6e6;
+}
+.section.dark h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    text-align: center;
+  }
+}
