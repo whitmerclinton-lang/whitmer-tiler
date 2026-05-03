@@ -520,3 +520,50 @@ footer {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
+/* 📱 MOBILE FIX GENERAL */
+@media (max-width: 768px) {
+
+  /* ABOUT */
+  .about-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .about-img img {
+    height: auto;
+  }
+
+  .about-text {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  /* CONTACT */
+  .contact-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+
+  /* TITULOS */
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  /* BOTONES */
+  .btn {
+    display: inline-block;
+    width: auto;
+  }
+}
+.section {
+  padding: 60px 20px;
+}
